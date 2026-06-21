@@ -815,3 +815,196 @@ h2::before {
 .btn-instagram:hover .arrow {
     transform: translate(3px, -3px); /* Anak panah meluncur diagonal ke atas */
 }
+/* Container Utama Ikon Background */
+.connect-timeline-section {
+    position: relative; /* Memastikan ikon tidak keluar jalur */
+    z-index: 1;
+}
+
+.timeline-container {
+    position: relative;
+    z-index: 3; /* Memaksa foto & teks berada di depan ikon */
+}
+
+.bg-icons-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Biar ikon gak bisa diklik/mengganggu mouse */
+    z-index: 1;
+    overflow: hidden;
+}
+/* ==========================================================================
+   UPDATE: GLOWING WHITE BACKGROUND ICONS (LEBIH RAME & KONTRAS)
+   ========================================================================== */
+/* ==========================================================================
+   CREATIVE SEAMLESS DOODLE PATTERN (RAME & PADAT)
+   ========================================================================== */
+.connect-timeline-section {
+    position: relative;
+    background-color: #0b0b0b;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Container utama polaroid dipaksa naik ke depan agar tidak tertimbun */
+.timeline-container {
+    position: relative;
+    z-index: 3; 
+}
+
+/* Lapisan Pola Rame di Background */
+.bg-doodle-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none; /* Biar gak mengganggu kursor saat klik tombol */
+    
+    /* Mengatur transparansi keseluruhan agar tidak merusak fokus foto */
+    opacity: 0.08; 
+
+    /* Trik mengubah ikon menjadi putih bersih */
+    filter: brightness(0) invert(1); 
+
+    /* KUMPULAN IKON MULTIMEDIA BERULANG (SEAMLESS DOODLE)
+       Kita memanfaatkan teknik SVG inline agar praktis, ringan, dan polanya padat */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><text x='10' y='30' font-size='20'>🎬</text><text x='70' y='25' font-size='16'>✨</text><text x='45' y='55' font-size='22'>📸</text><text x='15' y='95' font-size='18'>🎞️</text><text x='80' y='90' font-size='24'>📹</text><text x='100' y='50' font-size='14'>⭐</text></svg>");
+    
+    /* Memaksa gambar SVG di atas menduplikasi dirinya ke kanan dan ke bawah sampai layar penuh */
+    background-repeat: repeat; 
+    background-size: 140px 140px; /* Mengatur kerapatan/jarak antar kelompok ikon */
+}
+
+/* Bumbu Estetik: Efek interaktif halus saat halaman digeser/mouse bergerak */
+.connect-timeline-section:hover .bg-doodle-pattern {
+    transform: scale(1.02);
+    transition: transform 0.8s ease;
+}
+/* ==========================================================================
+   ALIF MADING GRID CUSTOM (ANTI BENTROK SYSTEM)
+   ========================================================================== */
+.alif-connect-section {
+    position: relative;
+    background-color: #0b0b0b !important;
+    padding: 100px 20px !important;
+    width: 100% !important;
+    display: block !important;
+}
+
+.alif-connect-container {
+    max-width: 1140px !important;
+    margin: 0 auto !important;
+}
+
+.alif-connect-header {
+    text-align: center !important;
+    max-width: 700px !important;
+    margin: 0 auto 50px auto !important;
+}
+
+.alif-connect-title {
+    font-size: 42px !important;
+    letter-spacing: 2px !important;
+    color: #ffffff !important;
+    margin-bottom: 15px !important;
+}
+
+.alif-connect-subtitle {
+    font-size: 14px !important;
+    color: #a0a0a0 !important;
+    line-height: 1.6 !important;
+}
+
+/* Sistem Grid Utama Mading */
+.alif-mading-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important; /* 3 Kolom sejajar di desktop */
+    grid-gap: 40px 30px !important;
+    margin-bottom: 60px !important;
+    width: 100% !important;
+}
+
+.alif-mading-item {
+    display: flex !important;
+    justify-content: center !important;
+}
+
+/* Desain Polaroid */
+.alif-polaroid {
+    background: #ffffff !important;
+    padding: 14px 14px 28px 14px !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6) !important;
+    width: 100% !important;
+    max-width: 300px !important; /* Ukuran proporsional di layar */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.alif-polaroid img {
+    width: 100% !important;
+    height: 220px !important;
+    object-fit: cover !important;
+}
+
+.alif-polaroid-caption {
+    font-family: monospace !important;
+    color: #222222 !important;
+    font-size: 11px !important;
+    margin-top: 14px !important;
+    text-align: center !important;
+}
+
+/* Efek Kemiringan Acak Mading Kreatif */
+.mading-rot-1 .alif-polaroid { transform: rotate(-3deg) !important; }
+.mading-rot-2 .alif-polaroid { transform: rotate(4deg) !important; }
+.mading-rot-3 .alif-polaroid { transform: rotate(-2deg) !important; }
+.mading-rot-4 .alif-polaroid { transform: rotate(3deg) !important; }
+.mading-rot-5 .alif-polaroid { transform: rotate(-4deg) !important; }
+.mading-rot-6 .alif-polaroid { transform: rotate(2deg) !important; }
+
+/* Efek Hover */
+.alif-polaroid:hover {
+    transform: scale(1.06) rotate(0deg) !important;
+    z-index: 10 !important;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.8) !important;
+}
+
+/* Penataan Tombol Instagram */
+.alif-connect-footer {
+    text-align: center !important;
+    margin-top: 50px !important;
+}
+
+.alif-btn-instagram {
+    display: inline-block !important;
+    background-color: #ffffff !important;
+    color: #0b0b0b !important;
+    text-decoration: none !important;
+    font-family: monospace !important;
+    font-weight: bold !important;
+    font-size: 13px !important;
+    letter-spacing: 1.5px !important;
+    padding: 16px 36px !important;
+    border: 1px solid #ffffff !important;
+    transition: all 0.3s ease !important;
+}
+
+.alif-btn-instagram:hover {
+    background-color: #0b0b0b !important;
+    color: #ffffff !important;
+    letter-spacing: 3px !important;
+}
+
+/* Responsif Layar HP Android */
+@media (max-width: 992px) {
+    .alif-mading-grid { grid-template-columns: repeat(2, 1fr) !important; } /* Tablet jadi 2 kolom */
+}
+
+@media (max-width: 600px) {
+    .alif-mading-grid { grid-template-columns: 1fr !important; } /* Android jadi 1 kolom lurus rapi */
+    .alif-polaroid { max-width: 290px !important; }
+}
