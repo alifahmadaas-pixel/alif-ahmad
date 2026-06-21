@@ -1,0 +1,817 @@
+/* ==========================================================================
+   1. RESET & SETUP DASAR
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   2. MENU NAVIGASI (NAVBAR)
+   ========================================================================== */
+.navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 8%;
+        background-color: rgba(0, 0, 0, 0.45); /* Menggunakan dasar gelap transparan */
+        backdrop-filter: blur(8px); /* Efek kaca blur premium agar teks putih menonjol */
+        z-index: 1000;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+.site-title a {
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-decoration: none;
+    color: #000000;
+    text-transform: uppercase;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #666666;
+    font-size: 13px;
+    font-weight: 600;
+    margin-left: 35px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #000000;
+}
+
+/* ==========================================================================
+   3. HERO SECTION (STYLE EMILY GRASLIE FULL-BACKGROUND)
+   ========================================================================== */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Memaksa tinggi halaman depan pas memenuhi satu layar penuh */
+    /* GANTI 'film-bts.jpg' di bawah ini dengan nama file foto syuting terbaikmu */
+    background: url('background.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: flex-end; /* Memposisikan teks di bagian bawah layar seperti Emily */
+    padding-bottom: 100px;
+    overflow: hidden;
+}
+
+/* Lapisan hitam transparan di atas foto agar teks putih terlihat tajam dan jelas */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 20%, rgba(0, 0, 0, 0.2) 100%);
+    z-index: 1;
+}
+
+.hero-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    position: relative;
+    z-index: 2; /* Memastikan teks berada di atas lapisan overlay */
+}
+
+.hero-text-wrapper {
+    max-width: 650px;
+}
+
+/* Judul Besar Bergaya Serif Elegan */
+.hero-title {
+    font-family: 'Lora', serif;
+    font-size: 64px;
+    font-weight: 500;
+    line-height: 1.1;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+/* Sub-teks Deskripsi */
+.hero-subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin-bottom: 35px;
+    max-width: 550px;
+}
+
+/* Pengaturan Tombol Premium di Atas Foto */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 14px 28px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.btn-primary {
+    background-color: #ffffff;
+    color: #000000;
+    border: 2px solid #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+.btn-secondary:hover {
+    background-color: #ffffff;
+    color: #000000;
+    transform: translateY(-3px);
+}
+
+/* Penyesuaian Navigasi agar Transparan Menyatu dengan Foto Background */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 5%;
+    background-color: transparent; /* Membuat navbar transparan mengambang */
+    border-bottom: none;
+    z-index: 1000;
+}
+
+.site-title a {
+    color: #ffffff !important; /* Mengubah teks nama menu atas jadi putih */
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.nav-links a:hover {
+    color: #ffffff !important;
+}
+
+/* ==========================================================================
+   4. STRUKTUR KONTEN UMUM (ABOUT, PORTFOLIO, RESUME)
+   ========================================================================== */
+.section-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+    color: #000000;
+    position: relative;
+    display: inline-block;
+}
+
+/* Garis dekoratif di bawah judul section */
+h2::after {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #000000;
+}
+
+/* Menambahkan titik dekorasi kecil di samping garis h2 */
+h2::before {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 70px;
+    width: 4px;
+    height: 4px;
+    background-color: #000000;
+    border-radius: 50%;
+}
+
+.about-section {
+    padding: 100px 0;
+    background-color: #ffffff;
+}
+
+.about-section p {
+    font-size: 17px;
+    color: #333333;
+    max-width: 850px;
+    line-height: 1.8;
+}
+
+/* ==========================================================================
+   5. KUTIPAN PERSONAL (QUOTE SECTION)
+   ========================================================================== */
+.quote-section {
+    padding: 80px 0;
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+}
+
+.personal-quote {
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 300;
+    max-width: 850px;
+    margin: 0 auto;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   6. PORTFOLIO GRID CARD (KEMBALI KE ORIGINAL RESPONSIVE BOX STYLE)
+   ========================================================================== */
+.portfolio-section {
+    padding: 80px 0;
+    background-color: #f8f9fa; /* Latar belakang abu-abu sangat muda agar kartu putih terlihat kontras */
+}
+
+.portfolio-section h2 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    color: #111111;
+}
+
+/* Grid yang otomatis menyesuaikan jumlah kolom di HP */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Kartu dengan kotak putih dan bayangan halus seperti versi pertama */
+.project-card {
+    background: #ffffff;
+    border: 1px solid #eef0f2;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left; /* Teks rata kiri rapi seperti semula */
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Pembungkus Gambar */
+.card-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background-color: #f1f3f5;
+}
+
+.card-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Khusus kartu kedua (double image berdampingan) */
+.card-img-wrapper.double-img {
+    display: flex;
+}
+
+.card-img-wrapper.double-img img {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    border-right: 1px solid #ffffff;
+}
+
+.card-img-wrapper.double-img img:last-child {
+    border-right: none;
+}
+
+/* Isi Teks di dalam Kartu */
+.card-content {
+    padding: 25px;
+}
+
+.card-content h3 {
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #111111;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+    line-height: 1.4;
+}
+
+.card-content p {
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE PORTFOLIO UNTUK TABLET & HP
+   ========================================================================== */
+@media (max-width: 992px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr); /* Di tablet jadi 2 kolom */
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr; /* Di HP otomatis jadi 1 kolom memanjang kebawah yang rapi */
+        gap: 20px;
+        padding: 0 25px;
+    }
+    
+    .card-img-wrapper {
+        height: 200px; /* Sedikit dikecilkan di HP agar seimbang */
+    }
+}
+
+/* ==========================================================================
+   7. RESUME / CV SECTION
+   ========================================================================== */
+.resume-section {
+    padding: 100px 0;
+    background-color: #ffffff;
+}
+
+.resume-grid {
+    display: flex;
+    gap: 80px;
+    margin-top: 20px;
+}
+
+.resume-left {
+    width: 40%;
+}
+
+.resume-right {
+    width: 60%;
+}
+
+.resume-section h3 {
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    color: #000000;
+    border-bottom: 1px solid #000000;
+    padding-bottom: 5px;
+}
+
+.resume-item {
+    margin-bottom: 30px;
+}
+
+.resume-item h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #000000;
+}
+
+.resume-item .duration {
+    font-size: 12px;
+    color: #888888;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.resume-item .company {
+    font-size: 13px;
+    font-weight: 600;
+    color: #444444;
+    margin-bottom: 6px;
+}
+
+.resume-item p {
+    font-size: 14px;
+    color: #555555;
+}
+
+.resume-skills {
+    font-size: 14px;
+    color: #333333;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   8. FOOTER
+   ========================================================================== */
+.site-footer {
+    padding: 50px 0;
+    text-align: center;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   9. RESPONSIVE DESIGN (UNTUK AKSES LEWAT HP)
+   ========================================================================== */
+@media (max-width: 900px) {
+    .navbar {
+        padding: 20px 5%;
+    }
+    .hero-section {
+        padding-top: 140px;
+    }
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 35px;
+        padding: 0 20px;
+    }
+    .hero-profile-img {
+        width: 200px;
+        height: 200px;
+    }
+    .hero-text h1 {
+        font-size: 38px;
+    }
+    .hero-buttons {
+        justify-content: center;
+    }
+    .resume-grid {
+        flex-direction: column;
+        gap: 50px;
+    }
+    .resume-left, .resume-right {
+        width: 100%;
+    }
+}
+/* Efek Zoom Halus Pada Gambar Kartu */
+.project-card:hover .card-img-wrapper img {
+    transform: scale(1.08); /* Gambar membesar 8% secara halus */
+}
+
+.card-img-wrapper img {
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Pergerakan zoom sangat mulus */
+}
+/* Label Status Proyek Film */
+.project-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #ffffff;
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 10;
+    pointer-events: none;
+}
+/* ==========================================================================
+   10. CONNECT SECTION (UPDATED COLOR & TEXT FIX)
+   ========================================================================== */
+.connect-section {
+    background-color: #1a1a1a; /* Mengganti abu-abu kehijauan dengan Hitam Arang Premium */
+    padding: 90px 0;
+    width: 100%;
+    overflow: hidden;
+    list-style: none; /* Memaksa segala jenis titik list bawaan hilang */
+    list-style-type: none;
+}
+
+.connect-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    gap: 50px;
+}
+
+/* Sisi Kiri: Teks */
+.connect-text {
+    flex: 1;
+    max-width: 500px;
+    text-align: left;
+}
+
+.connect-title {
+    font-family: 'Lora', serif;
+    font-size: 38px;
+    font-weight: 500;
+    color: #ffffff !important;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+/* Memastikan tidak ada dekorasi garis atau titik di bawah judul */
+.connect-text .connect-title::after {
+    display: none !important;
+}
+.connect-text {
+    flex: 1;
+    max-width: 500px;
+    text-align: left;
+    list-style: none !important; /* Memaksa tanda titik list hilang */
+    list-style-type: none !important;
+}
+.connect-description {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.75); /* Teks deskripsi putih agak transparan agar nyaman dibaca */
+    line-height: 1.7;
+    margin-bottom: 35px;
+}
+
+/* Tombol Putih Minimalis */
+.btn-connect {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    padding: 14px 28px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: 2px solid #ffffff;
+    transition: all 0.3s ease;
+}
+
+.btn-connect:hover {
+    background-color: transparent;
+    color: #ffffff;
+}
+
+.btn-connect .arrow {
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+/* Sisi Kanan: Visual Foto Beririsan */
+.connect-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Lingkaran Foto Utama */
+.circle-image-wrapper {
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 6px solid #222222; /* Garis tepi tipis agar kontras dengan background hitam */
+    box-shadow: 0 15px 45px rgba(0,0,0,0.3);
+}
+
+.connect-main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Badge Bulat Hitam Pekat */
+.instagram-badge {
+    position: absolute;
+    top: 15px;
+    right: -15px;
+    width: 140px;
+    height: 140px;
+    background-color: #ffffff; /* Kita balik badgenya jadi putih biar kontras di latar hitam */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.badge-text {
+    color: #000000; /* Tulisan dalam badge jadi hitam */
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Responsive untuk HP */
+@media (max-width: 850px) {
+    .connect-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 0 20px;
+    }
+    .connect-text {
+        text-align: center;
+    }
+    .circle-image-wrapper {
+        width: 290px;
+        height: 290px;
+    }
+    .instagram-badge {
+        width: 110px;
+        height: 110px;
+        top: 0;
+        right: -10px;
+    }
+    .badge-text {
+        font-size: 11px;
+    }
+}
+/* ==========================================================================
+   CREATIVE PORTFOLIO GRID (ANTI-RUANG KOSONG)
+   ========================================================================== */
+.connect-timeline-section {
+    background-color: #0b0b0b;
+    color: #ffffff;
+    padding: 100px 20px;
+}
+
+.timeline-container {
+    max-width: 1200px; /* Diperluas agar memenuhi layar */
+    margin: 0 auto;
+}
+
+/* Penataan Layout Grid 3 Kolom di Desktop */
+.gallery-grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    align-items: start;
+    margin: 50px 0;
+    position: relative;
+}
+
+/* Memposisikan Element agar Saling Mengisi Celah */
+.grid-item {
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+}
+
+/* Mengatur ukuran variatif tiap polaroid agar estetik */
+.photo-large .polaroid-card { max-width: 320px; transform: rotate(-3deg); }
+.photo-medium .polaroid-card { max-width: 260px; transform: rotate(4deg); margin-top: 40px; }
+.photo-vertical .polaroid-card { max-width: 270px; transform: rotate(-2deg); }
+.photo-small .polaroid-card { max-width: 250px; transform: rotate(3deg); margin-top: -20px; }
+.photo-medium-2 .polaroid-card { max-width: 280px; transform: rotate(-4deg); }
+
+/* Desain Kartu Polaroid Premium */
+.polaroid-card {
+    background: #ffffff;
+    padding: 14px 14px 28px 14px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 100%;
+}
+
+.polaroid-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    filter: grayscale(5%) contrast(105%);
+}
+
+.polaroid-caption {
+    font-family: monospace;
+    color: #222222;
+    font-size: 11px;
+    margin-top: 14px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+/* Hover Effect - Efek Menumpuk Saat Didekati */
+.polaroid-card:hover {
+    transform: scale(1.08) rotate(0deg) !important;
+    z-index: 10;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT FOR ANDROID / MOBILE
+   ========================================================================== */
+@media (max-width: 992px) {
+    /* Ubah jadi 2 kolom untuk tablet */
+    .gallery-grid-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+    }
+    .grid-item .polaroid-card {
+        margin-top: 0 !important;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Kembali jadi 1 kolom tegak lurus yang rapi di layar HP Android */
+    .gallery-grid-wrapper {
+        grid-template-columns: 1fr;
+        grid-gap: 35px;
+    }
+
+    .polaroid-card {
+        max-width: 290px !important; /* Pas dengan grip layar genggaman */
+    }
+
+    /* Rotasi tipis di HP biar tetap artsy tapi gak memakan space */
+    .grid-item:nth-child(odd) .polaroid-card { transform: rotate(2deg) !important; }
+    .grid-item:nth-child(even) .polaroid-card { transform: rotate(-2deg) !important; }
+}
+/* Container untuk memaksa tombol berada di tengah */
+.timeline-footer {
+    text-align: center;
+    width: 100%;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    clear: both; /* Mencegah bentrokan layout miring */
+}
+
+/* Mengubah link biru menjadi tombol minimalis premium */
+.btn-instagram {
+    display: inline-block;
+    background-color: #ffffff; /* Warna dasar putih murni */
+    color: #0b0b0b !important; /* Teks hitam pekat */
+    text-decoration: none !important; /* Menghilangkan garis bawah default blue link */
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    padding: 16px 36px;
+    border: 1px solid #ffffff;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Efek Animasi saat Kursor Mendekat (Hover) */
+.btn-instagram:hover {
+    background-color: #0b0b0b; /* Berubah jadi hitam */
+    color: #ffffff !important; /* Teks berubah jadi putih */
+    letter-spacing: 3px; /* Teks sedikit merenggang estetik */
+    box-shadow: 0 15px 30px rgba(255, 255, 255, 0.1);
+}
+
+/* Animasi untuk karakter anak panah (↗) */
+.btn-instagram .arrow {
+    display: inline-block;
+    margin-left: 6px;
+    transition: transform 0.3s ease;
+}
+
+.btn-instagram:hover .arrow {
+    transform: translate(3px, -3px); /* Anak panah meluncur diagonal ke atas */
+}
